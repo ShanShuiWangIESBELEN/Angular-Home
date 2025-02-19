@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 const routeConfig: Routes = [
     {
@@ -13,5 +14,10 @@ const routeConfig: Routes = [
         component: DetailsComponent,
         title: 'Home details',
     },
+    {
+        path: 'app-formulario',
+        component: FormularioComponent,
+        title: 'form'
+    }
 ];
 export default routeConfig;

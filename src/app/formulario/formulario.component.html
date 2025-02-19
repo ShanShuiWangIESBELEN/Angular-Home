@@ -1,0 +1,34 @@
+<h2>Registrar Nueva Casa</h2>
+<form [formGroup]="applyForm">
+  <!-- (ngSubmit)="RegistrarCasa()" -->
+  <!-- El id se incrementa solo -->
+  <label for="name">Nombre:</label>
+  <input type="text" id="name" name="name"><br><br>
+
+  <label for="city">Ciudad:</label>
+  <input type="text" id="city" name="city"><br><br>
+
+  <label for="state">Estado:</label>
+  <input type="text" id="state" name="state"><br><br>
+
+  <label for="photo">Foto URL:</label>
+  <input type="file" id="photo" name="photo"><br><br>
+
+  <label for="availableUnits">Unidades Disponibles:</label>
+  <input type="number" id="availableUnits" name="availableUnits"><br><br>
+
+  <label for="wifi">WiFi:</label>
+  <input type="checkbox" id="wifi" name="wifi"><br><br>
+
+  <label for="laundry">Lavandería:</label>
+  <input type="checkbox" id="laundry" name="laundry"><br><br>
+
+    <label for="security">Sistema de Seguridad:</label>
+    <select id="security" name="security" required>
+      <option value="alarm">Alarma</option>
+      <option value="cameras">Cámaras</option>
+      <option value="smokeDetectors">Detectores de Humo</option>
+      <option value="reinforcedDoors">Puertas Reforzadas</option>
+    </select><br><br>
+  <button type="submit">Registrar</button>
+</form>

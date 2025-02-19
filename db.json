@@ -12,7 +12,11 @@
             "coordinates": {
                 "latitude": 41.8781,
                 "longitude": -87.6298
-            }
+            },
+            "security": [
+                "alarm",
+                "cameras"
+            ]
         },
         {
             "id": 1,
@@ -26,7 +30,10 @@
             "coordinates": {
                 "latitude": 34.0195,
                 "longitude": -118.4912
-            }
+            },
+            "security": [
+                "smoke detectors"
+            ]
         },
         {
             "id": 2,
@@ -40,7 +47,10 @@
             "coordinates": {
                 "latitude": 58.3019,
                 "longitude": -134.4197
-            }
+            },
+            "securitySystem": [
+                "reforced doors"
+            ]
         },
         {
             "id": 3,
@@ -54,7 +64,12 @@
             "coordinates": {
                 "latitude": 41.8781,
                 "longitude": -87.6298
-            }
+            },
+            "security": [
+                "alarm",
+                "cameras",
+                "smoke detectors"
+            ]
         },
         {
             "id": 4,
@@ -68,7 +83,10 @@
             "coordinates": {
                 "latitude": 41.5934,
                 "longitude": -87.3464
-            }
+            },
+            "security": [
+                "alarm"
+            ]
         },
         {
             "id": 5,
@@ -82,7 +100,11 @@
             "coordinates": {
                 "latitude": 37.8044,
                 "longitude": -122.2711
-            }
+            },
+            "security": [
+                "cameras",
+                "smoke detectors"
+            ]
         },
         {
             "id": 6,
@@ -96,7 +118,11 @@
             "coordinates": {
                 "latitude": 37.8044,
                 "longitude": -122.2711
-            }
+            },
+            "security": [
+                "alarm",
+                "smoke detectors"
+            ]
         },
         {
             "id": 7,
@@ -110,7 +136,11 @@
             "coordinates": {
                 "latitude": 37.8044,
                 "longitude": -122.2711
-            }
+            },
+            "security": [
+                "alarm",
+                "smoke detectors"
+            ]
         },
         {
             "id": 8,
@@ -124,7 +154,10 @@
             "coordinates": {
                 "latitude": 37.8044,
                 "longitude": -122.2711
-            }
+            },
+            "security": [
+                "smoke detectors"
+            ]
         },
         {
             "id": 9,
@@ -138,7 +171,10 @@
             "coordinates": {
                 "latitude": 45.5152,
                 "longitude": -122.6784
-            }
+            },
+            "security": [
+                "alarm"
+            ]
         }
     ]
 }
