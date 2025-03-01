@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "NG_BUILD_PARALLEL_TS=0 ng serve",
+    "startAll": "concurrently \"ng serve\" \"json-server --watch db.json\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development"
   },
@@ -16,6 +17,8 @@
     "@angular/forms": "^19.0.0",
     "@angular/platform-browser": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@types/leaflet": "^1.9.16",
+    "leaflet": "^1.9.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

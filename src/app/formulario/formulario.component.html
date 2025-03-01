@@ -1,6 +1,5 @@
 <h2>Registrar Nueva Casa</h2>
-<form [formGroup]="applyForm">
-  <!-- (ngSubmit)="RegistrarCasa()" -->
+<form [formGroup]="applyForm" (ngSubmit)="registrarCasa()">  
   <!-- El id se incrementa solo -->
   <label for="name">Nombre:</label>
   <input type="text" id="name" name="name"><br><br>

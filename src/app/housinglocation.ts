@@ -7,6 +7,9 @@ export interface HousingLocation {
     availableUnits: number;
     wifi: boolean;
     laundry: boolean;
-    coordinate?: number;
+    coordinates: {
+        latitude: number;
+        longitude: number;
+    };
     security: string[];
 }

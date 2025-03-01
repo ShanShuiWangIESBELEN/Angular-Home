@@ -1,12 +1,14 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
 import { HousingLocation } from '../housinglocation';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MapaComponent } from '../mapa/mapa.component';
+
 @Component({
   selector: 'app-details',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MapaComponent],
   template: `
    <article>
     <img
@@ -29,6 +31,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
     </section>
     <section class="listing-apply">
       <h2 class="section-heading">Apply now to live here</h2>
+      <app-mapa *ngIf="housingLocation?.coordinates" [latitude]="housingLocation?.coordinates?.latitude ?? 0" [longitude]="housingLocation?.coordinates?.longitude ?? 0"></app-mapa>
       <form [formGroup]="applyForm" (submit)="submitApplication()">
         <label for="first-name">First Name</label>
         <input id="first-name" type="text" formControlName="firstName" />
@@ -48,7 +51,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
             style="color: red; margin-bottom: 10px">
           Incorrect email format
         </p>
-
         <button *ngIf="applyForm.valid" type="submit" class="primary">Apply now</button>
         <button style="background-color: lightgrey; border-color: lightgrey"
             *ngIf="!applyForm.valid" type="submit" class="primary">Apply now</button>
@@ -58,11 +60,16 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   `,
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
-  formData = JSON.parse(localStorage.getItem("formData") ?? "{}");
+
+  applyForm = new FormGroup({
+    firstName: new FormControl("", Validators.required),
+    lastName: new FormControl("", Validators.required),
+    email: new FormControl("", [Validators.required, Validators.email]),
+  });
 
   constructor() {
     const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
@@ -70,17 +77,16 @@ export class DetailsComponent {
     this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {
       this.housingLocation = housingLocation;
     });
-
-    if (localStorage.getItem("formData")) {
-      this.applyForm.setValue(JSON.parse(localStorage.getItem("formData") ?? "{}"));
-    }
   }
 
-  applyForm = new FormGroup({
-    firstName: new FormControl("", Validators.required),
-    lastName: new FormControl("", Validators.required),
-    email: new FormControl("", [Validators.required, Validators.email]),
-  });
+  ngOnInit() {
+    const formData = JSON.parse(localStorage.getItem("formData") ?? "{}");
+    this.applyForm.setValue({
+      firstName: formData.firstName || '',
+      lastName: formData.lastName || '',
+      email: formData.email || ''
+    });
+  }
 
   submitApplication() {
     if (this.applyForm.valid) {
